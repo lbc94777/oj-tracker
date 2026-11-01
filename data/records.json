@@ -1,0 +1,66 @@
+[
+  {
+    "id": "P1001",
+    "title": "A+B Problem",
+    "tags": ["模拟"],
+    "difficulty": "入门",
+    "date": "2026-10-05",
+    "ac": true
+  },
+  {
+    "id": "P1046",
+    "title": "陶陶摘苹果",
+    "tags": ["模拟", "循环"],
+    "difficulty": "入门",
+    "date": "2026-10-08",
+    "ac": true
+  },
+  {
+    "id": "P1008",
+    "title": "三连击",
+    "tags": ["枚举"],
+    "difficulty": "普及-",
+    "date": "2026-10-12",
+    "ac": true
+  },
+  {
+    "id": "P1088",
+    "title": "火星人",
+    "tags": ["全排列", "模拟"],
+    "difficulty": "普及-",
+    "date": "2026-10-18",
+    "ac": false
+  },
+  {
+    "id": "P1219",
+    "title": "八皇后",
+    "tags": ["搜索", "回溯"],
+    "difficulty": "普及/提高-",
+    "date": "2026-10-22",
+    "ac": true
+  },
+  {
+    "id": "P1048",
+    "title": "采药",
+    "tags": ["动态规划", "背包"],
+    "difficulty": "普及-",
+    "date": "2026-10-27",
+    "ac": true
+  },
+  {
+    "id": "P1090",
+    "title": "合并果子",
+    "tags": ["贪心", "堆"],
+    "difficulty": "普及/提高-",
+    "date": "2026-10-29",
+    "ac": false
+  },
+  {
+    "id": "P1141",
+    "title": "01迷宫",
+    "tags": ["搜索", "广度优先搜索"],
+    "difficulty": "普及/提高-",
+    "date": "2026-10-31",
+    "ac": true
+  }
+]
