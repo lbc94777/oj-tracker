@@ -1,4 +1,5 @@
 import json
+from datetime import date, timedelta
 
 
 def load_records(path):
@@ -30,9 +31,33 @@ def all_tags(records):
     return s
 
 
+def ac_rate(records):
+    count = 0
+    for record in records:
+        if record["ac"]:
+            count += 1
+    if len(records) == 0:
+        return 0
+    rate = count / len(records)
+    return round(rate, 2)
+
+
+def recent(records, days=7):
+    result = []
+    start = (date.today() - timedelta(days=days)).isoformat()
+
+    for record in records:
+        if record["date"] >= start:
+            result.append(record)
+    return result
+
+
 def main() -> None:
     path = "data/records.json"
     records = load_records(path)
     # print(records)
-    print(count_by_tag(records))
-    print(all_tags(records))
+    # print(count_by_tag(records))
+    # print(all_tags(records))
+    print(ac_rate(records))
+    print(recent(records))
+    print(recent(records, days=30))
