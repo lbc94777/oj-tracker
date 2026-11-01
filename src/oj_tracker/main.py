@@ -23,11 +23,7 @@ def count_by_tag(records):
 
 
 def all_tags(records):
-    s = set()
-    for record in records:
-        tags = record["tags"]
-        for tag in tags:
-            s.add(tag)
+    s = {tag for record in records for tag in record["tags"]}
     return s
 
 
@@ -43,13 +39,14 @@ def ac_rate(records):
 
 
 def recent(records, days=7):
-    result = []
     start = (date.today() - timedelta(days=days)).isoformat()
-
-    for record in records:
-        if record["date"] >= start:
-            result.append(record)
+    result = [record for record in records if record["date"] >= start]
     return result
+
+
+def titles_by_difficulty(records, level):
+    titles = [record["title"] for record in records if record["difficulty"] == level]
+    return titles
 
 
 def main() -> None:
@@ -58,6 +55,8 @@ def main() -> None:
     # print(records)
     # print(count_by_tag(records))
     # print(all_tags(records))
-    print(ac_rate(records))
-    print(recent(records))
-    print(recent(records, days=30))
+    # print(ac_rate(records))
+    # print(recent(records))
+    # print(recent(records, days=30))
+    # print(all_tags(records))
+    # print(titles_by_difficulty(records, "入门"))
