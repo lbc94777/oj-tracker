@@ -1,10 +1,22 @@
 import json
+import sys
 from datetime import date, timedelta
 
 
 def load_records(path):
-    with open(path, "r", encoding="utf-8") as f:
-        records = json.load(f)
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            records = json.load(f)
+
+    except FileNotFoundError:
+        print("找不到数据文件:", path)
+        sys.exit(1)
+
+    except json.JSONDecodeError as e:
+        print(f"数据文件 '{path}' 已损坏,第{e.lineno}行附近,请修复该文件或从备份恢复.")
+        sys.exit(1)
+
+    else:
         return records
 
 
@@ -39,6 +51,9 @@ def ac_rate(records):
 
 
 def recent(records, days=7):
+    if days < 0:
+        raise ValueError(f"天数不能为负数:{days}")
+
     start = (date.today() - timedelta(days=days)).isoformat()
     result = [record for record in records if record["date"] >= start]
     return result
@@ -52,11 +67,11 @@ def titles_by_difficulty(records, level):
 def main() -> None:
     path = "data/records.json"
     records = load_records(path)
-    # print(records)
+    print(records)
     # print(count_by_tag(records))
     # print(all_tags(records))
     # print(ac_rate(records))
     # print(recent(records))
-    # print(recent(records, days=30))
+    # print(recent(records, days=-1))
     # print(all_tags(records))
     # print(titles_by_difficulty(records, "入门"))
