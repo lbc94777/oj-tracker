@@ -100,3 +100,7 @@ def main() -> None:
             f"  {record['date']}  {record['id']}  {status}  "
             f"{record['title']}({record['difficulty']},{tags})"
         )
+
+
+if __name__ == "__main__":
+    main()
