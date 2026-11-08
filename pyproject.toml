@@ -1,7 +1,7 @@
 [project]
 name = "oj-tracker"
 version = "0.1.0"
-description = "Add your description here"
+description = "记录和统计 OJ 刷题情况的命令行工具"
 readme = "README.md"
 authors = [
     { name = "libc", email = "stalor146@gmail.com" }
